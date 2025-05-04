@@ -36,7 +36,7 @@ int main() {
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
 
-            // Atualiza felicidade com base nas condições
+            // Atualiza felicidade
         if (fome >= 10 || limpeza <= 0) {
             felicidade -= 1;
 
@@ -47,59 +47,64 @@ int main() {
             }
         }
         //HUGO
-        if (opcao == 1) {
-            if (tempoRestante <= 8) {
-                idade++;
-                tempoRestante = 24;
-                printf("Um dia se passou. Dias restantes: %d\n", 7 - idade);
-            }else{
-                tempoRestante -= 8;
-            }
-
-            vidaAtual -= 8;
-            horas += 8;
-            // Reseta o contador de horas horas = 0
-            //reduz a limpeza em 2 pontos o pet fica mais sujo com o tempo
-            if (horas >= 24) {
-                horas = 0;
-                limpeza -= 2;
-                if (limpeza < 0) limpeza = 0;
-            }
-
-            //ajuste de felicidade
-            //se a limpeza estiver abaixo ou igual a 2 pet muito sujo
-            //reduz a felicidade em 1 ponto
-            felicidade = (felicidade + 1 > 10) ? 10 : felicidade + 1;
-            if (limpeza <= 2) {
-                felicidade = (felicidade - 1 < 0) ? 0 : felicidade - 1;
-                printf("%s esta muito sujo e ficou triste!\n", nome);
-            }
-
-            //fome
-            //aumenta a fome em 2 pontos a cada 5 horas acumuladas
-            HORASTATUSFOME += 8;
-            while(HORASTATUSFOME >= 5) {
-                fome = (fome + 2 > 10) ? 10 : fome + 2;
-                HORASTATUSFOME -= 5;
-            }
-
-            //doença
-            if(doente == 0){
-                if(rand() % 10 == 0){ // 10% de chance de ficar doente
-                    doente = 1;
-                    HORASDOENTE = 0;
-                    printf("\nOh nao! %s ficou doente!\n", nome);
-                }
-            } else{ //se ficar doente
-                HORASDOENTE += 8;
-                if(HORASDOENTE >= 24) {
-                    doente = 0;
-                    printf("\n%s se curou!\n", nome);
-                }
-            }
-
-            printf("8 horas se passaram.\n");
+    if (opcao == 1) {
+        if (tempoRestante <= 8) {
+            idade++;
+            tempoRestante = 24;
+            printf("Um dia se passou. Dias restantes: %d\n", 7 - idade);
+        }else{
+        tempoRestante -= 8;
         }
+
+        vidaAtual -= 8;
+        horas += 8;
+    // Reseta o contador de horas horas = 0
+    //reduz a limpeza em 2 pontos o pet fica mais sujo com o tempo
+    if(horas >= 24) {
+        horas = 0;
+        limpeza -= 2;
+    if(limpeza < 0) limpeza = 0;
+    }
+
+    //Penalidade se muito sujo
+    if(limpeza <= 2) {
+        felicidade--;
+    if (felicidade < 0) felicidade = 0;
+        printf("%s esta muito sujo e ficou triste!\n", nome);
+}
+
+    //Recompensa se está saudável e bem cuidado
+    if(fome < 5 && limpeza > 5 && doente == 0) {
+    felicidade++;
+    if (felicidade > 10) felicidade = 10;
+    }
+
+    //fome
+    //aumenta a fome em 2 pontos a cada 5 horas acumuladas
+        HORASTATUSFOME += 8;
+    while(HORASTATUSFOME >= 5) {
+        fome = (fome + 2 > 10) ? 10 : fome + 2;
+        HORASTATUSFOME -= 5;
+    }
+
+    //doença
+    if(doente == 0){
+    if(rand() % 10 == 0){ // 10% de chance de ficar doente
+        doente = 1;
+        HORASDOENTE = 0;
+        printf("\nOh nao! %s ficou doente!\n", nome);
+    }
+
+    } else{ //se ficar doente
+        HORASDOENTE += 8;
+        if(HORASDOENTE >= 24) {
+            doente = 0;
+            printf("\n%s se curou!\n", nome);
+            }
+        }
+
+        printf("8 horas se passaram.\n");
+    }
 
         // EDUARDO
         if (opcao == 2){
@@ -259,10 +264,20 @@ int main() {
             return 0;
         }
 
-        if (felicidade <= 0 || fome >= 10 || limpeza <= 0 || idade >= 7) {
-            printf("\nFim de jogo! %s não sobreviveu.\n", nome);
-            break;
-        }
+    if (felicidade <= 0) {
+    printf("\n%s morreu de tristeza.\n", nome);
+    break;
+    } else if (fome >= 10) {
+    printf("\n%s morreu de fome.\n", nome);
+    break;
+    } else if (limpeza <= 0) {
+    printf("\n%s morreu por falta de higiene.\n", nome);
+    break;
+    } else if (idade >= 7) {
+    printf("\n%s teve uma vida longa e faleceu de velhice.\n", nome);
+    break;
+    }
+
     }
 
 
