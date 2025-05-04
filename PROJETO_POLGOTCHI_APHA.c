@@ -40,11 +40,6 @@ int main() {
         if (fome >= 10 || limpeza <= 0) {
             felicidade -= 1;
 
-            // Verifica se felicidade chegou a zero
-            if (felicidade <= 0) {
-                printf("\n%s morreu de tristeza...\n", nome);
-                break;
-            }
         }
         //HUGO
     if (opcao == 1) {
@@ -283,3 +278,4 @@ int main() {
 
     return 0;
 }
+
