@@ -102,19 +102,22 @@ int main() {
         }
 
         // EDUARDO
-        else if (opcao == 2){
-            if (fome > 0) {
-            fome += 4;
-            if (fome < 0) fome = 0;
-            felicidade -= 1;
-            if (felicidade > 10) felicidade = 10;
-            printf("%s foi alimentado!\n", nome);
-            } else {
-            felicidade += 2;
-            if (felicidade < 0) felicidade = 0;
-            printf("%s não estava com fome e ficou triste!\n", nome);
-            }
+        if (opcao == 2){
+        if (fome > 0) {
+        fome -= 4;
+        if (fome < 0) fome = 0;
+            felicidade += 1;
+        if (felicidade > 10) felicidade = 10;
+        printf("%s foi alimentado!\n", nome);
+        } else {
+        felicidade -= 2;
+        if (felicidade < 0) felicidade = 0;
+        printf("%s não estava com fome e ficou triste!\n", nome);
+
         }
+
+    }
+
 
         // HUGO
         else if (opcao == 3){
