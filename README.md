@@ -1,4 +1,4 @@
-🐵 Tamagotchi 🐵
+🐵 Pougotchi 🐵
 
 Este é o um projeto de um bichinho virtual desenvolvido em linguagem C, que simula os cuidados com um pet como a alimentação, higiene , diversão e saúde.
 
