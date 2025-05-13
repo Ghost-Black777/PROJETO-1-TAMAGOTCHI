@@ -261,15 +261,19 @@ int main() {
 
     if (felicidade <= 0) {
     printf("\n%s morreu de tristeza.\n", nome);
+    printf("E viveu por %d dia(s).\n", idade);
     break;
     } else if (fome >= 10) {
     printf("\n%s morreu de fome.\n", nome);
+    printf("E viveu por %d dia(s).\n", idade);
     break;
     } else if (limpeza <= 0) {
     printf("\n%s morreu por falta de higiene.\n", nome);
+    printf("E viveu por %d dia(s).\n", idade);
     break;
     } else if (idade >= 7) {
     printf("\n%s teve uma vida longa e faleceu de velhice.\n", nome);
+    printf("E viveu por %d dia(s).\n", idade);
     break;
     }
 
