@@ -68,7 +68,7 @@ int main() {
         printf("%s esta muito sujo e ficou triste!\n", nome);
 }
 
-    //Recompensa se est· saud·vel e bem cuidado
+    //Recompensa se est√° saud√°vel e bem cuidado
     if(fome < 5 && limpeza > 5 && doente == 0) {
     felicidade++;
     if (felicidade > 10) felicidade = 10;
@@ -82,7 +82,7 @@ int main() {
         HORASTATUSFOME -= 5;
     }
 
-    //doenÁa
+    //doen√ßa
     if(doente == 0){
     if(rand() % 10 == 0){ // 10% de chance de ficar doente
         doente = 1;
@@ -112,7 +112,7 @@ int main() {
         } else {
         felicidade -= 2;
         if (felicidade < 0) felicidade = 0;
-        printf("%s n„o estava com fome e ficou triste!\n", nome);
+        printf("%s n√£o estava com fome e ficou triste!\n", nome);
 
         }
 
@@ -234,10 +234,10 @@ int main() {
             if (limpeza == 10) {
                 felicidade -= 6;
                 if (felicidade < 0) felicidade = 0;
-                printf("%s j· est· limpo e ficou triste.\n", nome);
+                printf("%s j√° est√° limpo e ficou triste.\n", nome);
             } else {
                 limpeza = 10;
-                printf("%s tomou banho e est· limpo.\n", nome);
+                printf("%s tomou banho e est√° limpo.\n", nome);
             }
         }
 
@@ -249,7 +249,7 @@ int main() {
             printf("Felicidade: %d/10\n", felicidade);
             printf("Limpeza: %d/10\n", limpeza);
             printf("Fome: %d/10\n", fome);
-            printf("Doente: %s\n", doente ? "Sim" : "N„o");
+            printf("Doente: %s\n", doente ? "Sim" : "N√£o");
             printf("----------------------------\n");
         }
 
